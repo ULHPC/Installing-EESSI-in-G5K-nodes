@@ -14,7 +14,7 @@ install_cvmfs() {
   # Install CMFS keys
   if [ ! -f /tmp/cvmfs-release-latest_all.deb ]; then
     wget --output-document=/tmp/cvmfs-release-latest_all.deb https://ecsft.cern.ch/dist/cvmfs/cvmfs-release/cvmfs-release-latest_all.deb
-  fi  
+  fi
   dpkg-deb --raw-extract /tmp/cvmfs-release-latest_all.deb /tmp/cvmfs-release
   sudo cp /tmp/cvmfs-release/etc/apt/trusted.gpg.d/cernvm.gpg /etc/apt/trusted.gpg.d/cernvm.gpg
 
@@ -37,7 +37,7 @@ install_eessi() {
   # Install EESSI package
   if [ ! -f /tmp/cvmfs-config-eessi_latest_all.deb ]; then
     wget --output-document=/tmp/cvmfs-config-eessi_latest_all.deb https://github.com/EESSI/filesystem-layer/releases/download/latest/cvmfs-config-eessi_latest_all.deb
-  fi  
+  fi
   sudo dpkg -i /tmp/cvmfs-config-eessi_latest_all.deb
   # create client configuration file for CernVM-FS (no squid proxy, 10GB local CernVM-FS client cache)
   sudo bash -c "echo 'CVMFS_CLIENT_PROFILE="single"' > /etc/cvmfs/default.local"
