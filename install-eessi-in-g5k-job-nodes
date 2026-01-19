@@ -10,4 +10,4 @@ while [ -z "${node_list}" ]; do
   [ -z "${node_list}" ] && sleep 5
 done
 
-clush --dshbak -w "${node_list}" "${PWD}/setup-eessi-in-g5k"
+clush --dshbak -w "${node_list}" "${PWD}/install-eessi-in-g5k"
