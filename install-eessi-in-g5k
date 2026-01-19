@@ -1,0 +1,13 @@
+#!/usr/bin/bash
+
+set -euo pipefail
+
+declare node_list=""
+delcare job_id="${1}"
+
+while [ -z "${node_list}" ]; do
+  node_list=$(oarstat --full --job "${job_id}" | awk 'BEGIN {FS="="} $1 ~ /assigned_hostnames/ {gsub(" ", "", $2); gsub(".luxembourg.grid5000.fr", "", $2); gsub("+", ",", $2); print $2}')
+  sleep 5
+done
+
+clush --dshbak -w "${node_list}" "${PWD}/setup-eessi-in-g5k"
