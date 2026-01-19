@@ -10,5 +10,5 @@ For instance, you can clone the directory in your hope repository. Then, simply 
 
 ```
 cd Installing-EESSI-in-G5K-nodes
-./install-eessi-in-g5k
+./install-eessi-in-g5k-job-nodes
 ```
